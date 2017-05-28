@@ -1,25 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="wikiApp" ng-controller="wikiCtrl">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8" />
 	<title>Wikipedia Viewer</title>
+
+	<!-- JS Scripts -->
+	<script 
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script 
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js">
+	</script> 
+	<script src="js/wikiviewer.js"></script>
+
+
+	<!-- CSS files-->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 </head>
-<body>
-<div class="container">
-  <div class="text-center">
-<h1>Wikipedia API Viewer</h1>
- <h4>MediaWiki Web API</h4>
-  <a href="https://en.wikipedia.org/wiki/Special:Random" target="blank">
-    <img src="https://vignette4.wikia.nocookie.net/headhuntershorrorhouse/images/d/de/Wikipedia-logo_%28inverse%29.png/revision/latest?cb=20100227040741"  width="300px" alt="Wikipedia" />
+<body class="text-center">
+	<h1>{{wikiInfo.heading}}</h1>
+	<!-- <p>{{wikiInfo.appInfo}}</p> -->
+	 <a href="https://en.wikipedia.org/wiki/Special:Random" target="blank">
+    <img src="https://vignette4.wikia.nocookie.net/headhuntershorrorhouse/images/d/de/Wikipedia-logo_%28inverse%29.png/revision/latest?cb=20100227040741"  width="200px" alt="Wikipedia" />
   </a>
-<!--   <form action=""> -->
-    <input type="search" class="form-control" id="search-term" />
-    <button id="search" class="btn btn-primary">Search</button>
-<!--   </form> -->
-  <ul id="search-results">
-  </ul>
-    </div>
-</div>
-	
+	<div>
+		<a class="btn-lg" 
+		ng-href="{{wikiInfo.subHeading2.githubprofile}}" 
+		target="blank" title="Yacub93"><i class="fa fa-github"></i></a>
+
+		<a class="btn-lg" 
+		ng-href="{{wikiInfo.subHeading2.linkedinprofile}}" 
+		target="blank" title="Yacub Ali"><i class="fa fa-linkedin"></i></a>
+	</div>
+
+			<form class="ng-pristine ng-valid">
+			<div class="input-group" >
+			  <input type="text" ng-places-autocomplete  ng-model="formData.searchTerm" class="form-control" placeholder="Enter Search term..." />
+			</div> 
+			<br>
+			  <button style="width: 300px" id="search" class="btn btn-primary" ng-click="search()">
+			 	<i class="fa fa-search"></i>
+			  	Search
+		      </button>
+		     
+		</form>
+	</div>
+</div>	
 </body>
 </html>

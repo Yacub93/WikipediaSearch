@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.3",
+    "express": "^4.15.3"
+  }
+}
