@@ -5,6 +5,7 @@
 	<title>Wikipedia Viewer</title>
 
 	<!-- JS Scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script 
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 	<script 
@@ -36,9 +37,10 @@
 		target="blank" title="Yacub Ali"><i class="fa fa-linkedin"></i></a>
 	</div>
 
-			<form class="ng-pristine ng-valid">
+		<ng-form class="ng-pristine ng-valid" autocomplete="off">
 			<div class="input-group" >
-			  <input type="text" ng-places-autocomplete  ng-model="formData.searchTerm" class="form-control" placeholder="Enter Search term..." />
+			  <input id="reset" type="text" ng-places-autocomplete  ng-model="formData.searchTerm" class="form-control" placeholder="Search..." />
+			
 			</div> 
 			<br>
 			  <button style="width: 300px" id="search" class="btn btn-primary" ng-click="search()">
@@ -46,8 +48,41 @@
 			  	Search
 		      </button>
 		     
-		</form>
+		</ng-form>
+			<table class="table table-hover table-responsive" ng-repeat="result in results">
+			  <thead class="thead-inverse">
+			    <tr>
+			      <th>Title</th>
+			      <th>Extract</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td><a ng-href="{{result.page}}" target='_blank'>{{result.title}}</a></td>
+			      <td>{{result.body}}</td>
+			    </tr>
+			  </tbody>
+			</table>
+<!-- 		<ul ng-repeat="result in results">
+			<li>{{result.title}}</li>
+			<li>{{result.body}}</li>
+			<li><img src="{{result.image}}" height="100px"></li>
+	 	</ul> -->
 	</div>
 </div>	
+
+
+<script>
+	// RESET SEARCH INPUT
+function tog(v){return v?'addClass':'removeClass';} 
+	$(document).on('input', '#reset', function(){
+	    $(this)[tog(this.value)]('x');
+	}).on('mousemove', '.x', function( e ){
+	    $(this)[tog(this.offsetWidth-18 < e.clientX-this.getBoundingClientRect().left)]('onX');
+	}).on('touchstart click', '.onX', function( ev ){
+	    ev.preventDefault();
+	    $(this).removeClass('x onX').val('').change();
+});
+</script>
 </body>
 </html>

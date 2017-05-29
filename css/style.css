@@ -32,13 +32,13 @@ h1,h3,h4{
 
 .fa.fa-github{
 	font-size:60px;
-	color:#B0CF00;
+	color:#f1c40f;
 }
 
 .fa.fa-linkedin{
 	font-size:60px;
 	margin-bottom: 20px;
-	color:#B0CF00;
+	color:#f1c40f;
 }
 
 .fa.fa-github:hover{
@@ -77,10 +77,26 @@ h1,h3,h4{
 	border-color: #34495e;
 }
 
-
+.table{
+	width: 750px;
+	margin: 15px auto 0px;
+	padding: 5px 0px;
+}
 
 @media screen and (max-width: 1050px) {
   input[type="search"] {
     width: 100%; } }
 
+
+/* Clear search input field */
+#reset{
+  background: #fff url(http://i.stack.imgur.com/mJotv.gif) no-repeat right -10px center;
+  border: 1px solid #999;
+  /*padding: 3px 18px 3px 4px;      Use the same right padding (18) in jQ! */
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+#reset.x  { background-position: right 5px center; } /* (jQ) Show icon */
+#reset.onX{ cursor: pointer; }              /* (jQ) hover cursor style */
+#reset::-ms-clear {display: none; width:0; height:0;} /* Remove IE default X */
 

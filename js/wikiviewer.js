@@ -3,8 +3,8 @@ var classApp = angular.module('wikiApp', []);
 classApp.controller("wikiCtrl", function($scope, $http) {
 
   $scope.wikiInfo = {
-    heading: "Wikipedia Search Viewer",
-    appInfo: "A simple wikipedia app that displays  information depending on the user\'s search input.",
+    heading: "Wikipedia Search",
+    appInfo: "A simple wikipedia app that displays that lets you search information using the search input.",
     subHeading2: {
       githubprofile: "https://github.com/Yacub93",
       linkedinprofile: "https://uk.linkedin.com/in/yacub-ali-4898b9103"
@@ -12,7 +12,7 @@ classApp.controller("wikiCtrl", function($scope, $http) {
   };
 
 
-	$scope.results = [];
+$scope.results = [];
 
   $scope.search = function() {
     $scope.results = [];
@@ -26,7 +26,18 @@ classApp.controller("wikiCtrl", function($scope, $http) {
     .success(function(data) {
     	// console.log(data);
       var results = data.query.pages;
-      console.log(results);
+      // console.log(results);
+      	
+
+        angular.forEach(results, function(value, key) {
+        $scope.results.push({title: value.title, 
+        					 body: value.extract,
+        					 page: page + value.pageid
+        					 });
+
+        // console.log("value= " + v + "key= " + k);
+        console.log($scope.results);
+      });
     });
   }
 
