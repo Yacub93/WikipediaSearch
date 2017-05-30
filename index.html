@@ -2,7 +2,7 @@
 <html ng-app="wikiApp" ng-controller="wikiCtrl">
 <head>
 	<meta charset="UTF-8" />
-	<title>Wikipedia Viewer</title>
+	<title>Wikipedia Search</title>
 
 	<!-- JS Scripts -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -23,9 +23,8 @@
 </head>
 <body class="text-center">
 	<h1>{{wikiInfo.heading}}</h1>
-	<!-- <p>{{wikiInfo.appInfo}}</p> -->
-	 <a href="https://en.wikipedia.org/wiki/Special:Random" target="blank">
-    <img src="https://vignette4.wikia.nocookie.net/headhuntershorrorhouse/images/d/de/Wikipedia-logo_%28inverse%29.png/revision/latest?cb=20100227040741"  width="200px" alt="Wikipedia" />
+	 <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
+    <img class="thumbnail" src="http://logodatabases.com/wp-content/uploads/2012/03/wiki-logos.png"  height="100" width="100" alt="Click For Random Article" />
   </a>
 	<div>
 		<a class="btn-lg" 
@@ -36,11 +35,12 @@
 		ng-href="{{wikiInfo.subHeading2.linkedinprofile}}" 
 		target="blank" title="Yacub Ali"><i class="fa fa-linkedin"></i></a>
 	</div>
-
 		<ng-form class="ng-pristine ng-valid" autocomplete="off">
 			<div class="input-group" >
-			  <input id="reset" type="text" ng-places-autocomplete  ng-model="formData.searchTerm" class="form-control" placeholder="Search..." />
-			
+			  <input id="searchTerm" type="text"  ng-model="formData.searchTerm" class="form-control" placeholder="Search..." />
+				  <button  style="display: none;" id="reset" class="btn btn-danger" ng-click="reset()">
+				 	<i class="fa fa-times"></i>
+			      </button>
 			</div> 
 			<br>
 			  <button style="width: 300px" id="search" class="btn btn-primary" ng-click="search()">
@@ -49,40 +49,40 @@
 		      </button>
 		     
 		</ng-form>
-			<table class="table table-hover table-responsive" ng-repeat="result in results">
+			<table class="table table-responsive" ng-repeat="result in results">
 			  <thead class="thead-inverse">
 			    <tr>
 			      <th>Title</th>
 			      <th>Extract</th>
+			      <th>Thumbnail</th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			    <tr>
 			      <td><a ng-href="{{result.page}}" target='_blank'>{{result.title}}</a></td>
 			      <td>{{result.body}}</td>
+			      <td><img ng-src="{{result.image}}"></td>
 			    </tr>
 			  </tbody>
 			</table>
-<!-- 		<ul ng-repeat="result in results">
-			<li>{{result.title}}</li>
-			<li>{{result.body}}</li>
-			<li><img src="{{result.image}}" height="100px"></li>
-	 	</ul> -->
 	</div>
 </div>	
 
-
 <script>
-	// RESET SEARCH INPUT
-function tog(v){return v?'addClass':'removeClass';} 
-	$(document).on('input', '#reset', function(){
-	    $(this)[tog(this.value)]('x');
-	}).on('mousemove', '.x', function( e ){
-	    $(this)[tog(this.offsetWidth-18 < e.clientX-this.getBoundingClientRect().left)]('onX');
-	}).on('touchstart click', '.onX', function( ev ){
-	    ev.preventDefault();
-	    $(this).removeClass('x onX').val('').change();
+$(function(){
+    // Hide submit button if either field is empty
+    $('#searchTerm').keyup(function(){
+        if($('#searchTerm').val() == ""){
+            $('#reset').hide();
+        }
+        else {
+            $('#reset').show();
+        }
+    });
 });
+
+
 </script>
+
 </body>
 </html>
