@@ -1,7 +1,6 @@
 # Wikipedia Search App
 
-A simple, wikipedia search app built using the AngularJS Framework. It gathers data from Wikipedia, via the Wikipedia API: https://www.mediawiki.org/wiki/API:Main_page. 
-
+A simple, Wikipedia search app built using the AngularJS Framework. It gathers data from Wikipedia, via the Wikipedia API: https://www.mediawiki.org/wiki/API:Main_page. 
 
 ## Features:
  * Search Feature for entering search terms, entries displayed below.
@@ -9,14 +8,14 @@ A simple, wikipedia search app built using the AngularJS Framework. It gathers d
  * Clear search field and results by clicking the reset button.
 
 ## App Screenshot
-<br>
 * Version 1
-<img width="1280" alt="screen shot 2017-05-30 at 18 59 24" src="https://cloud.githubusercontent.com/assets/26364425/26597493/1f904e5a-456a-11e7-8ea8-674f5c2415b2.png">
+<br>
+<img width="1271" alt="wikipedia search" src="https://cloud.githubusercontent.com/assets/26364425/26597969/9f9264de-456b-11e7-94df-a13f21d98e74.png">
+<br>
+
+<br>
+<img width="1265" alt="search results" src="https://cloud.githubusercontent.com/assets/26364425/26597976/a166a810-456b-11e7-85cd-da85140bf63b.png">
 <br>
 
 ## TODO:
-
 * Add View more entries feature
-
-
-
