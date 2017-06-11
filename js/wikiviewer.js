@@ -31,7 +31,7 @@ classApp.controller("wikiCtrl", function($scope, $http) {
     $scope.results = [];
     console.log($scope.results + " Search function");
     var title = $scope.formData.searchTerm;
-    var wikiURL = 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=';
+    var wikiURL = 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=20&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=';
     var cb = '&callback=JSON_CALLBACK';
     var page = 'https://en.wikipedia.org/?curid=';
     

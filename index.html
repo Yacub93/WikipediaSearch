@@ -22,9 +22,9 @@
 
 </head>
 <body class="text-center">
-	<h1>{{wikiInfo.heading}}</h1>
+	<h1>{{wikiInfo.heading}}</h1><br>
 	 <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
-    <img class="thumbnail" src="http://logodatabases.com/wp-content/uploads/2012/03/wiki-logos.png"  height="100" width="100" alt="Click For Random Article" />
+    <img class="thumbnail" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1122px-Wikipedia-logo-v2.svg.png"  height="250" alt="Click For Random Article" />
   </a>
 	<div>
 		<a class="btn-lg" 
@@ -49,7 +49,20 @@
 		      </button>
 		     
 		</ng-form>
-			<table class="table table-responsive" ng-repeat="result in results">
+		
+		<div class="results">
+		<br>
+		    <ul><!-- ngRepeat: result in results -->
+		    <a ng-href="{{result.page}}" target='_blank' ng-repeat="result in results">
+		        <li class="list-items item">
+					<h1 class="title">{{result.title}}</h1>
+					<p class="text-body">{{result.body}}</p>
+					<img height="100px" ng-src="{{result.image}}">
+		        </li>
+		    </ul>
+		</div>
+
+<!-- 			<table class="table table-responsive" ng-repeat="result in results">
 			  <thead class="thead-inverse">
 			    <tr>
 			      <th>Title</th>
@@ -64,13 +77,13 @@
 			      <td><img ng-src="{{result.image}}"></td>
 			    </tr>
 			  </tbody>
-			</table>
+			</table> -->
 	</div>
 </div>	
 
 <script>
 $(function(){
-    // Hide submit button if either field is empty
+    // Hide submit button if field is empty
     $('#searchTerm').keyup(function(){
         if($('#searchTerm').val() == ""){
             $('#reset').hide();
