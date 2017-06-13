@@ -62,7 +62,14 @@ h1,h3,h4{
 .input-group {
   width: 750px; 
   margin: 15px auto 0;
+  box-shadow: 10px 10px;
 
+}
+
+.form-control:focus { 
+    outline: none;
+    border-color: #ecf0f1;
+    box-shadow: 0 0 10px #ecf0f1;
 }
 
 
@@ -94,7 +101,7 @@ h1,h3,h4{
 
 
 /*Enlarge Wiki Logo*/
-.thumbnail:hover {
+/*.thumbnail:hover {
     position:relative;
     top:-25px;
     left:-15px;
@@ -103,7 +110,7 @@ h1,h3,h4{
     height:auto;
     display:block;
     z-index:999;
-}
+}*/
 
 /*.col-xs-12{
 	width: 100%;
@@ -133,17 +140,19 @@ h1,h3,h4{
     position: relative;
     display: block;
     padding: 10px 15px;
-    margin-bottom: -1px;
-    background-color: #7f8c8d;
-    border: 1px solid white;
+    margin-bottom: 6px;
+    background-color: #ecf0f1;
+    border: 2px solid #ecf0f1;
+    transition: all .2s ease-in-out;
 }
  
  .title{
-	color: #ecf0f1;
+	color: black;
  }
  .text-body{
- 	color: #ecf0f1;
+ 	 color: black;
  }
+
 
 #reset{
 	background: #e74c3c;
@@ -156,6 +165,7 @@ a:link {
 }
 .list-items:hover  {
     text-decoration: none;
-    background-color: #2980b9;
-    border-color: #2980b9;
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+    transform: scale(1.1); 
 }

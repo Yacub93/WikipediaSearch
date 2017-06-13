@@ -37,13 +37,13 @@
 	</div>
 		<ng-form class="ng-pristine ng-valid" autocomplete="off">
 			<div class="input-group" >
-			  <input id="searchTerm" type="text"  ng-model="formData.searchTerm" class="form-control" placeholder="Search..." />
+			  <input id="searchTerm" type="text" ng-model="formData.searchTerm" class="form-control" placeholder="Search..." autofocus />
 				  <button  style="display: none;" id="reset" class="btn btn-danger" ng-click="reset()">
 				 	<i class="fa fa-times"></i>
 			      </button>
 			</div> 
 			<br>
-			  <button style="width: 300px" id="search" class="btn btn-primary" ng-click="search()">
+			  <button style="width: 300px" id="search" class="btn btn-primary" ng-click="search(formData.searchTerm)">
 			 	<i class="fa fa-search"></i>
 			  	Search
 		      </button>
@@ -55,29 +55,12 @@
 		    <ul><!-- ngRepeat: result in results -->
 		    <a ng-href="{{result.page}}" target='_blank' ng-repeat="result in results">
 		        <li class="list-items item">
-					<h1 class="title">{{result.title}}</h1>
+					<h2 class="title">{{result.title}}</h1>
 					<p class="text-body">{{result.body}}</p>
-					<img height="100px" ng-src="{{result.image}}">
+					<!-- <img height="100px" ng-src="{{result.image}}"> -->
 		        </li>
 		    </ul>
 		</div>
-
-<!-- 			<table class="table table-responsive" ng-repeat="result in results">
-			  <thead class="thead-inverse">
-			    <tr>
-			      <th>Title</th>
-			      <th>Extract</th>
-			      <th>Thumbnail</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr>
-			      <td><a ng-href="{{result.page}}" target='_blank'>{{result.title}}</a></td>
-			      <td>{{result.body}}</td>
-			      <td><img ng-src="{{result.image}}"></td>
-			    </tr>
-			  </tbody>
-			</table> -->
 	</div>
 </div>	
 
